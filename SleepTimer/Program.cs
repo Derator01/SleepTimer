@@ -21,6 +21,6 @@ public static partial class Program
 
         Thread.Sleep(int.Parse(arg[0]));
 
-        SetSuspendState(false, true, false); ;
+        SetSuspendState(false, true, false);
     }
 }

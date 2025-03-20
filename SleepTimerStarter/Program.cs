@@ -29,7 +29,7 @@ public static partial class Program
             {
                 Console.WriteLine("Input string was not in a correct format.");
                 Main();
-                return;
+                continue;
             }
 
             seconds = int.Parse(match.Groups["count"].Value) * (match.Groups["type"].Value switch
@@ -46,12 +46,6 @@ public static partial class Program
         Process.Start(Path.Combine(Directory.GetCurrentDirectory(), @"SleepTimer.exe"), seconds.ToString());
     }
 
-    private static string GetParentDirectory(string currentDir, int depth)
-    {
-        return depth == 0 ? currentDir : GetParentDirectory(Directory.GetParent(currentDir).FullName, depth - 1);
-    }
-
-
-    [GeneratedRegex(@"^(?<count>\d+)(?<type>[smhdy])$")]
+    [GeneratedRegex(@"^(?<count>\d+)(?<type>[smhdy])")]
     private static partial Regex TimeInput();
 }
